@@ -1,81 +1,131 @@
 #imported turtle module
+
 import turtle
-#my screen
+
+#my screen 
+
 wind = turtle.Screen() #intialize screem
+
 wind.title("Ping Pong By Mohammed")#set the title of the window 
+
 wind.bgcolor("black")#set the background color lof the window 
+
 wind.setup(width=800, height=600)#set the width and height of the window 
+
 wind.tracer(0)#stops the window from updating automatically
 
 #madrab1
 madrab1 = turtle.Turtle()#intializes turtle object(shape)
+
 madrab1.speed(0)#set the speed of the animation 
+
 madrab1.shape("square")#sset the shape of the object 
+
 madrab1.color("blue")#set the color of teh shape
+
 madrab1.shapesize(stretch_wid=5 , stretch_len=1)#stretches teh shape to meet the size
+
 madrab1.penup()#stops the object from drawing liens
+
 madrab1.goto(-350 , 0)#set the position of the object
 
 #madrab2
+
 madrab2 = turtle.Turtle()
+
 madrab2.speed(0)
+
 madrab2.shape("square")
+
 madrab2.color("red")
+
 madrab2.shapesize(stretch_wid=5 , stretch_len=1)
+
 madrab2.penup()
+
 madrab2.goto(350 , 0)
 
 #ball
 ball = turtle.Turtle()
+
 ball.speed(0)
+
 ball.shape("square")
+
 ball.color("white")
+
 ball.penup()
+
 ball.goto(0 , 0)
+
 ball.dx = 0.2
+
 ball.dy = 0.2
 
 #score
+
 score1 = 0
+
 score2 = 0
+
 score = turtle.Turtle()
+
 score.speed(0)
+
 score.color("white")
+
 score.penup()
+
 score.hideturtle()
+
 score.goto(0 , 260)
+
 score.write("Player 1 : 0 Player 2 : 0", align="center",font=("Courier",24,"normal"))
 
 #functions
+
 def madrab1_up():
+
     y = madrab1.ycor() #set the y coordinate of the madrab1
+    
     y += 20 #set the y increase be 20
+    
     madrab1.sety(y)# set the y of the madrab1 to the new y coordinate
 
 def madrab1_down():
+
     y = madrab1.ycor()
     y -= 20 
     madrab1.sety(y)
 
 def madrab2_up():
+
     y = madrab2.ycor()
     y += 20 
     madrab2.sety(y)
 
 def madrab2_down():
+
     y = madrab2.ycor()
     y -= 20 
     madrab2.sety(y)
 
 #keyboard bindings
 wind.listen()#tell the window to expect keyboard input
+
 wind.onkeypress(madrab1_up , "w")#when pressing w the function madrab1_up
+
 wind.onkeypress(madrab1_down, "s")
+
 wind.onkeypress(madrab2_up , "Up")
+
 wind.onkeypress(madrab2_down , "Down")
 
+
 #main game loop
+
 while True:
+
     wind.update()#audates teh screen everytime the loop run
 
     #move the ball
